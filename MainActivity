@@ -1,0 +1,62 @@
+package com.tesji.atleticos;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.tesji.atleticos.model.MainActivityModel;
+
+public class MainActivity extends AppCompatActivity {
+    private TextInputEditText txMinutos;
+    private TextInputEditText txSegundos;
+    private TextInputEditText txMinutos2;
+    private TextInputEditText txSegundos2;
+    private Button btEnviar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        txMinutos=findViewById(R.id.txtMinutos);
+        txSegundos=findViewById(R.id.txtSegundos);
+        txMinutos2=findViewById(R.id.txtMinutos2);
+        txSegundos2=findViewById(R.id.txtSegundos2);
+        btEnviar=findViewById(R.id.btnEnviar);
+        btEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivityModel objModel = null;
+                if (txMinutos.getText().toString().trim().length() == 0) {
+                    txMinutos.setText(null);
+                    txMinutos.setError("Debe ingresar los Minutos");
+                    txMinutos.requestFocus();
+                } else if (txSegundos.getText().toString().trim().length() == 0) {
+                    txSegundos.setText(null);
+                    txSegundos.setError("Debe ingresar los segundos");
+                    txSegundos.requestFocus();
+                } else if (txMinutos2.getText().toString().trim().length() == 0) {
+                    txMinutos2.setText(null);
+                    txMinutos2.setError("Debe ingresar los Minutos");
+                    txMinutos2.requestFocus();
+                } else if (txSegundos2.getText().toString().trim().length() == 0) {
+                    txSegundos2.setText(null);
+                    txSegundos2.setError("Debe ingresar los segundos");
+                    txSegundos2.requestFocus();
+                }else {
+                    //Enviando y la peticion al modelo
+                    objModel = new MainActivityModel();
+                }
+                objModel.setMinutos(Integer.parseInt(txMinutos.getText().toString()));
+                objModel.setSegundos(Integer.parseInt(txSegundos.getText().toString()));
+                objModel.setMinutos2(Integer.parseInt(txMinutos2.getText().toString()));
+                objModel.setSegundos2(Integer.parseInt(txSegundos2.getText().toString()));
+                //Recibe el modelo los datos, los procesa y los regresa a la vista
+                Toast.makeText(getApplicationContext(), objModel.calcularTiempo(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+}
