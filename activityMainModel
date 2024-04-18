@@ -1,0 +1,48 @@
+package com.tesji.atleticos.model;
+
+public class MainActivityModel {
+    private int Minutos;
+    private int Segundos;
+    private int Minutos2;
+    private int Segundos2;
+
+    public String calcularTiempo() {
+        int h, m, mt1, mt2, ms, st, sum, sus;
+        sum = Minutos + Minutos2;
+        sus = Segundos + Segundos2;
+        ms = sus / 60;
+        st = sus % 60;
+        m = sum + ms;
+        mt1 = m / 60;
+        mt2 = m % 60;
+        h = mt1 * 1;
+        if (Segundos < 60 && Segundos2 < 60) {
+            if (Minutos < 60 && Minutos2 < 60) {
+                return "Las horas totales son: " + h + ":" + mt2 + ":" + st + "\n";
+            }
+        }else {
+            return "Ingrese un valor valido";
+        }
+
+        return null;
+    }
+
+
+
+
+
+    public int getMinutos() {return Minutos;}
+
+    public void setMinutos(int minutos) {Minutos = minutos;}
+
+    public int getSegundos() {return Segundos;}
+
+    public void setSegundos(int segundos) {Segundos = segundos;}
+
+    public int getMinutos2() {return Minutos2;}
+
+    public void setMinutos2(int minutos2) {Minutos2 = minutos2;}
+
+    public int getSegundos2() {return Segundos2;}
+
+    public void setSegundos2(int segundos2) {Segundos2 = segundos2;}
