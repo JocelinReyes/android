@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">atleticos</string>
+    <string name="app_titulo">¿Cuanto tardaste?</string>
+    <string name="app_segundos">Cuantos segundos</string>
+    <string name="app_Minutos">Cuantos minutos</string>
+    <string name="app_BtnEnviar">Enviar</string>
+    <string name="app_titulo2">Tiempo del corredor 1</string>
+    <string name="app_titulo3">Tiempo del corredor 2</string>
+</resources>
